@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+
+        .container {
+            display: grid;
+           grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+           grid-template-rows: 200px 200px 100px ;
+           gap: 1rem;
+           border: 1px slid red;
+
+           justify-items: stretch;
+           align-items: center;
+        }
+
+        .box {
+            background-color: red;
+           
+        }
+
+        .box1 {
+            flex: 1
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box box1">lorem sdfdsf dsafdsa empsum code</div>
+        <div class="box box2">lorem</div>
+         <div class="box box3">lorem</div>
+        <div class="box box4">lorem</div>
+        <div class="box box5">lorem</div>
+        <div class="box box6">lorem</div> 
+    </div>
+</body>
+
+</html>
