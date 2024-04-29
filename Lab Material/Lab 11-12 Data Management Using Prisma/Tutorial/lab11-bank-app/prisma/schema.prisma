@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator dbml {
+  provider = "prisma-dbml-generator"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Owner {
+  id           String    @id @default(cuid())
+  firstname    String
+  lastname     String
+  email        String
+  gender       String
+  profileImage String
+  Account      Account[]
+}
+
+model Account {
+  accountNo   String        @id @default(cuid())
+  acctType    String
+  balance     Float
+  dateOpened  DateTime      @default(now())
+  ownerId     String
+  Owner       Owner         @relation(fields: [ownerId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  Transaction Transaction[]
+}
+
+model Transaction {
+  transId   Int     @id @default(autoincrement())
+  transType String
+  amount    Float
+  accountNo String
+  Account   Account @relation(fields: [accountNo], references: [accountNo], onDelete: Cascade, onUpdate: Cascade)
+}
